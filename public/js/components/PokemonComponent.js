@@ -3,7 +3,7 @@ import Component from "./Component.js";
 class PokemonComponent extends Component {
   pokemon;
   constructor(parentElement, pokemon) {
-    super("div", "pokeCard", parentElement);
+    super("li", "pokecard", parentElement);
     this.pokemon = pokemon;
     this.render();
   }
