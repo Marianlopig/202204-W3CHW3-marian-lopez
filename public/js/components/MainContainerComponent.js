@@ -6,7 +6,7 @@ import PokemonComponent from "./PokemonComponent.js";
 class MainContainerComponent extends Component {
   constructor(parentElement) {
     super("div", "main-container", parentElement);
-    const urlApi = "https://pokeapi.co/api/v2/pokemon";
+    const urlApi = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
 
     this.render(urlApi);
   }
@@ -36,16 +36,32 @@ class MainContainerComponent extends Component {
       })();
     });
 
+    const params = new URLSearchParams(new URL(pokemonsUrl).search);
+    const offset = params.get("offset");
+    const limit = params.get("limit");
+
+    const from = parseInt(offset, 10) + 1;
+    const to = parseInt(offset, 10) + parseInt(limit, 10);
+
     const pagination = this.element.querySelector(".pagination");
+
     pagination.innerHTML = `
       <button class="button-pre">Previous</button>
-      <span>1-20/${pokemons.count}</span>
+      <span>${from}-${to}/${pokemons.count}</span>
       <button class="button-next">Next</button>
       `;
 
     const buttonNext = pagination.querySelector(".button-next");
+    const buttonPre = pagination.querySelector(".button-pre");
     buttonNext.addEventListener("click", () => {
-      this.render(pokemons.next);
+      if (pokemons.next !== null) {
+        this.render(pokemons.next);
+      }
+    });
+    buttonPre.addEventListener("click", () => {
+      if (pokemons.previous !== null) {
+        this.render(pokemons.previous);
+      }
     });
   }
 }
