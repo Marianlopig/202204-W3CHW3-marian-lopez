@@ -13,9 +13,9 @@ class MainContainerComponent extends Component {
 
   render(pokemonsUrl) {
     this.element.innerHTML = `<h1>Pokemon List</h1>
-    <ul class="pokemon-list">
-    </ul>
-    <div class ="pagination"></div>`;
+      <ul class="pokemon-list">
+      </ul>
+      <div class ="pagination"></div>`;
     new NavBarComponent(this.element);
 
     this.renderPokemons(pokemonsUrl);
