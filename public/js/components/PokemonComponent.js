@@ -1,5 +1,6 @@
 import Component from "./Component.js";
 
+const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 class PokemonComponent extends Component {
   pokemon;
   constructor(parentElement) {
@@ -23,7 +24,7 @@ class PokemonComponent extends Component {
     </div>
   </div>
   <div class="text-container">
-    <h2> #${this.pokemon.id} ${this.capitalize(this.pokemon.name)}</h2>
+    <h2> #${this.pokemon.id} ${capitalize(this.pokemon.name)}</h2>
     <div class= "types-container">
       <h3>Type</h3>
       <ul class ="text-container--types">
@@ -44,10 +45,6 @@ class PokemonComponent extends Component {
       result += `<li>${type.type.name}</li>`;
     });
     return result;
-  }
-
-  capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 }
 
