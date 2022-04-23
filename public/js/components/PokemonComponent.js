@@ -24,14 +24,14 @@ class PokemonComponent extends Component {
   </div>
   <div class="text-container">
     <h2> #${this.pokemon.id} ${this.pokemon.name}</h2>
-    <div>
+    <div class= "types-container">
       <h3>Type</h3>
-      <ul>
+      <ul class ="text-container--types">
       ${this.getTypes()}
       </ul>
     </div>
-    <button>Save</button>
-    <button>Details</button>
+    <input type="image" name="Name of image button" src="images/details.png" height ="50" alt="icono pokeball">
+    <input type="image" name="Name of image button" src="images/saveicon.png" height ="50" alt="icono pokeball">  
   </div>
     `;
   }

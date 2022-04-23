@@ -53,3 +53,20 @@ body {
   color: #04bcff;
   font-size: 18px;
 }
+.text-container h3 {
+  margin: 20px 0px -10px 0px;
+  color: #043d51;
+  font-size: 14px;
+}
+
+.text-container--types {
+  display: flex;
+  justify-content: space-between;
+}
+.text-container--types li {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px -10px 0px;
+  padding: none;
+  padding: 20px;
+}
