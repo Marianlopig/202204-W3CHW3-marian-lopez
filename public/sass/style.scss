@@ -66,8 +66,8 @@ body {
 
 .text-container h2 {
   margin: 20px 0px 10px 0px;
-  color: #04bcff;
-  font-size: 18px;
+  color: #043d51;
+  font-size: 22px;
 }
 .text-container h3 {
   margin: 20px 0px -10px 0px;
@@ -104,5 +104,35 @@ body {
     list-style: none;
     padding-left: 30px;
     padding-right: 30px;
+  }
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+  text-align: center;
+  align-items: center;
+
+  & li {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  & a {
+    background-color: #043d51;
+    margin: auto 10px;
+    color: #fff;
+    font-weight: bold;
+    border: 3px solid #043d51;
+    text-decoration: none;
+    border-radius: 25%;
+  }
+  &__counter {
+    color: #043d51;
+    font-weight: bold;
   }
 }
