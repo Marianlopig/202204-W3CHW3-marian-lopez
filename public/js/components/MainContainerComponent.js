@@ -1,4 +1,6 @@
+/* eslint-disable no-new */
 import Component from "./Component.js";
+import PokemonComponent from "./PokemonComponent.js";
 
 class MainContainerComponent extends Component {
   constructor(parentElement) {
@@ -16,14 +18,16 @@ class MainContainerComponent extends Component {
         </ul>
       </nav>
     </header>
-    <ul>
-      <li>Pokemon Card 1</li>
-      <li>Pokemon Card 2</li>
-      <li>Pokemon Card 3</li>
+    <ul class="pokemon-list">
     </ul>
     <button>Previous</button>
     <span>1-20/1123</span>
     <button>Next</button`;
+
+    const parentPokemonCard = this.element.querySelector(".pokemon-list");
+    new PokemonComponent(parentPokemonCard);
+    new PokemonComponent(parentPokemonCard);
+    new PokemonComponent(parentPokemonCard);
   }
 }
 
