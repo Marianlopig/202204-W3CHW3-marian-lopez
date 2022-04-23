@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --watchAll)",
     "prepare": "husky install",
-    "compile": "sass public/sass/style.scss public/css/style.css --watch",
+    "compile": "sass public/sass/style.scss public/css/style.css --watchAll",
     "compilenet": "sass public/sass/style.scss public/css/style.css"
   },
   "keywords": [],

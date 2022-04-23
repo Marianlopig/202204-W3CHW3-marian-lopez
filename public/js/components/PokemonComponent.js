@@ -10,15 +10,23 @@ class PokemonComponent extends Component {
 
   render() {
     this.element.innerHTML = `
-    <h2>Pokemon Name</h2>
+  <div class="img-container">
+    <div class="img-inner">
+      <div class="inner-skew">
     <img src="../images/pokeball.png" alt="alt" />
-    <p>#001<p>
-    <h3>Type</h3>
+      </div>
+    </div>
+    </div>
+  <div class="text-container">
+    <h2>Pokemon Name #003</h2>
+    <div>
+ <h3>Type</h3>
     <ul>
     <li>type 1</li>
     <li>type 2</li>
     </ul>
-    <button>Save</button>
+    </div>
+     <button>Save</button>
     <button>Details</button>
     `;
   }
