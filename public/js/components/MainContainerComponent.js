@@ -41,7 +41,7 @@ class MainContainerComponent extends Component {
       <button class="button-pre">Previous</button>
       <span>1-20/${pokemons.count}</span>
       <button class="button-next">Next</button>
-     `;
+      `;
 
     const buttonNext = pagination.querySelector(".button-next");
     buttonNext.addEventListener("click", () => {
