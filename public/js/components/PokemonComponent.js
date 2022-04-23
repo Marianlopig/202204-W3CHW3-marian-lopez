@@ -16,7 +16,9 @@ class PokemonComponent extends Component {
   <div class="img-container">
     <div class="img-inner">
       <div class="inner-skew">
-        <img src="../images/pokeball.png" alt="alt" />
+        <img src="${
+          this.pokemon.sprites.other["official-artwork"].front_default
+        }" alt="alt" />
       </div>
     </div>
   </div>
@@ -25,14 +27,21 @@ class PokemonComponent extends Component {
     <div>
       <h3>Type</h3>
       <ul>
-      <li>type 1</li>
-      <li>type 2</li>
+      ${this.getTypes()}
       </ul>
     </div>
     <button>Save</button>
     <button>Details</button>
   </div>
     `;
+  }
+
+  getTypes() {
+    let result = "";
+    this.pokemon.types.forEach((type) => {
+      result += `<li>${type.type.name}</li>`;
+    });
+    return result;
   }
 }
 
