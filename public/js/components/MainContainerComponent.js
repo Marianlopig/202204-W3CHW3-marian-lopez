@@ -46,9 +46,11 @@ class MainContainerComponent extends Component {
     const pagination = this.element.querySelector(".pagination");
 
     pagination.innerHTML = `
-      <button class="button-pre">Previous</button>
-      <span>${from}-${to}/${pokemons.count}</span>
-      <button class="button-next">Next</button>
+      <ul class="pagination">
+        <a href="#" class="button-pre"><li><</li></a>
+        <li class="pagination__counter">${from}-${to}/${pokemons.count}</li>
+        <a href="#" class="button-next"><li>></li></a>
+      </ul>
       `;
 
     const buttonNext = pagination.querySelector(".button-next");
