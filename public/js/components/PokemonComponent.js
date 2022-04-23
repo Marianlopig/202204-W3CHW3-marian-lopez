@@ -5,6 +5,7 @@ class PokemonComponent extends Component {
   constructor(parentElement, pokemon) {
     super("div", "pokeCard", parentElement);
     this.pokemon = pokemon;
+    this.render();
   }
 
   render() {
@@ -17,6 +18,8 @@ class PokemonComponent extends Component {
     <li>type 1</li>
     <li>type 2</li>
     </ul>
+    <button>Save</button>
+    <button>Details</button>
     `;
   }
 }
