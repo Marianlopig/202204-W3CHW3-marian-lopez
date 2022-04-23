@@ -1,8 +1,24 @@
+html,
+body,
+#page {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
   text-align: center;
-  padding: 30px;
+  padding: none;
+  margin: none;
   background-color: whitesmoke;
   font-family: Arial;
+}
+
+.container {
+  padding: none;
+  margin: none;
 }
 
 .pokecard {
@@ -69,4 +85,24 @@ body {
   margin: 20px 0px -10px 0px;
   padding: none;
   padding: 20px;
+}
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+  background-color: #043d51;
+  padding: none;
+  margin: none;
+  & ul {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+  & li {
+    color: white;
+    list-style: none;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
