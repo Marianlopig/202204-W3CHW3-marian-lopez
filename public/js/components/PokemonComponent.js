@@ -23,15 +23,17 @@ class PokemonComponent extends Component {
     </div>
   </div>
   <div class="text-container">
-    <h2> #${this.pokemon.id} ${this.pokemon.name}</h2>
+    <h2> #${this.pokemon.id} ${this.capitalize(this.pokemon.name)}</h2>
     <div class= "types-container">
       <h3>Type</h3>
       <ul class ="text-container--types">
       ${this.getTypes()}
       </ul>
     </div>
-    <input type="image" name="Name of image button" src="images/details.png" height ="50" alt="icono pokeball">
-    <input type="image" name="Name of image button" src="images/saveicon.png" height ="50" alt="icono pokeball">  
+    <div class="pokemon-actions">
+      <input type="image" name="Name of image button" src="images/details.png" height ="50" alt="icono pokeball">
+      <input type="image" name="Name of image button" src="images/saveicon.png" height ="50" alt="icono pokeball"> 
+    </div> 
   </div>
     `;
   }
@@ -42,6 +44,10 @@ class PokemonComponent extends Component {
       result += `<li>${type.type.name}</li>`;
     });
     return result;
+  }
+
+  capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 }
 
