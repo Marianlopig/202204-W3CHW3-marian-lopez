@@ -24,10 +24,23 @@ class MainContainerComponent extends Component {
     <span>1-20/1123</span>
     <button>Next</button`;
 
+    this.renderPokemons();
+  }
+
+  async renderPokemons() {
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon");
+    const pokemons = await response.json();
     const parentPokemonCard = this.element.querySelector(".pokemon-list");
-    new PokemonComponent(parentPokemonCard);
-    new PokemonComponent(parentPokemonCard);
-    new PokemonComponent(parentPokemonCard);
+
+    pokemons.results.forEach((pokemon) => {
+      const pokemonCard = new PokemonComponent(parentPokemonCard);
+
+      (async () => {
+        const pokemonDetailsResponse = await fetch(pokemon.url);
+        const pokemonDetails = await pokemonDetailsResponse.json();
+        pokemonCard.firstRender(pokemonDetails);
+      })();
+    });
   }
 }
 

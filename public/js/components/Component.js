@@ -4,7 +4,7 @@ class Component {
   constructor(item, className, parentElement) {
     this.element = document.createElement(item);
     this.element.className = className;
-    parentElement.prepend(this.element);
+    parentElement.append(this.element);
   }
 }
 export default Component;
