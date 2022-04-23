@@ -2,8 +2,11 @@ import Component from "./Component.js";
 
 class PokemonComponent extends Component {
   pokemon;
-  constructor(parentElement, pokemon) {
+  constructor(parentElement) {
     super("li", "pokecard", parentElement);
+  }
+
+  firstRender(pokemon) {
     this.pokemon = pokemon;
     this.render();
   }
@@ -18,7 +21,7 @@ class PokemonComponent extends Component {
     </div>
   </div>
   <div class="text-container">
-    <h2>Pokemon Name #003</h2>
+    <h2> #${this.pokemon.id} ${this.pokemon.name}</h2>
     <div>
       <h3>Type</h3>
       <ul>
