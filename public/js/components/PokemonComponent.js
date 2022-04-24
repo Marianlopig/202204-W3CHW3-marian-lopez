@@ -32,11 +32,13 @@ class PokemonComponent extends Component {
       </ul>
     </div>
     <div class="pokemon-actions">
-      <input type="image" name="Name of image button" src="images/details.png" height ="50" alt="icono pokeball">
-      <input type="image" name="Name of image button" src="images/saveicon.png" height ="50" alt="icono pokeball"> 
+      <input type="image" class="icon-detail-button" src="images/details.png" height ="50" alt="icono pokedex">
+      <input type="image" class="icon-save-button" src="images/saveicon.png" height ="50" alt="icono pokeball"> 
     </div> 
   </div>
     `;
+
+    this.addEventListeners();
   }
 
   getTypes() {
@@ -45,6 +47,19 @@ class PokemonComponent extends Component {
       result += `<li>${type.type.name}</li>`;
     });
     return result;
+  }
+
+  addEventListeners() {
+    const saveButton = this.element.querySelector(".icon-save-button");
+    saveButton.addEventListener("click", () => {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(this.pokemon),
+      };
+
+      fetch("https://pokemon-marian.herokuapp.com/pokemon", requestOptions);
+    });
   }
 }
 
