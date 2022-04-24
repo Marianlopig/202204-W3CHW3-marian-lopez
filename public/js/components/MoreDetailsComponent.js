@@ -16,16 +16,24 @@ class MoreDetailsComponent extends Component {
         <ul>
         ${this.getAbilities()}
         </ul>
-      <li>Base Experience: ${this.pokemon.base_experience}</li>
-      <li>Height:${this.pokemon.height}</li>
-      <li>Weight:${this.pokemon.weight}</li>
-    </ul>`;
+      <li>Base Experience:</li>
+        <ul>
+          <li contentEditable="true">${this.pokemon.base_experience}</li>
+        </ul>
+      <li>Height:</li>
+        <ul>
+          <li contentEditable="true">${this.pokemon.height}</li>
+        </ul>
+      <li>Weight:</li>
+        <ul>
+          <li contentEditable="true">${this.pokemon.weight}</li>
+        </ul>`;
   }
 
   getAbilities() {
     let result = "";
     this.pokemon.abilities.forEach((ability) => {
-      result += `<li>${ability.ability.name}</li>`;
+      result += `<li contentEditable="true">${ability.ability.name}</li>`;
     });
     return result;
   }
