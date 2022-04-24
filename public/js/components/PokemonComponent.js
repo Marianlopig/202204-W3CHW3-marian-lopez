@@ -3,8 +3,11 @@ import Component from "./Component.js";
 const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 class PokemonComponent extends Component {
   pokemon;
-  constructor(parentElement) {
+  constructor(parentElement, pokemon) {
     super("li", "pokecard", parentElement);
+    if (pokemon) {
+      this.firstRender(pokemon);
+    }
   }
 
   firstRender(pokemon) {
@@ -32,8 +35,10 @@ class PokemonComponent extends Component {
       </ul>
     </div>
     <div class="pokemon-actions">
-      <input type="image" class="icon-detail-button" src="images/details.png" height ="50" alt="icono pokedex">
-      <input type="image" class="icon-save-button" src="images/saveicon.png" height ="50" alt="icono pokeball"> 
+      <a href="../../details?id=${
+        this.pokemon.id
+      }"><input type="image" class="icon-detail-button" src="images/details.png" height ="50" alt="icono pokedex"></a>
+      <input type="image" class="icon-save-button" src="images/saveicon.png" height ="50" alt="icono pokeball">
     </div> 
   </div>
     `;
