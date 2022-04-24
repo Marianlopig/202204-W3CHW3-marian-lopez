@@ -14,6 +14,7 @@ body {
   margin: none;
   background-color: whitesmoke;
   font-family: Arial;
+  min-height: 100%;
 }
 * {
   margin: 0;
@@ -38,11 +39,16 @@ body {
   overflow: hidden;
   border-radius: 0px 0px 20px 20px;
   display: inline-block;
-}
 
-.img-container img {
-  transform: skew(0deg, -13deg);
-  height: 200px;
+  & img {
+    transform: skew(0deg, -13deg);
+    height: 200px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+  }
 }
 
 .inner-skew {
@@ -113,6 +119,8 @@ body {
     padding-left: 30px;
     padding-right: 30px;
     font-weight: bold;
+  }
+  & a {
     text-decoration: none;
   }
 }
@@ -152,4 +160,14 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 10px;
+}
+
+.footer {
+  gap: 30px;
+  align-items: center;
+  background-color: #043d51;
+  padding: none;
+  margin: none;
+  text-decoration: none;
+  color: white;
 }
