@@ -101,6 +101,7 @@ body {
   background-color: #043d51;
   padding: none;
   margin: none;
+  text-decoration: none;
   & ul {
     display: flex;
     flex-direction: row;
@@ -112,6 +113,7 @@ body {
     padding-left: 30px;
     padding-right: 30px;
     font-weight: bold;
+    text-decoration: none;
   }
 }
 

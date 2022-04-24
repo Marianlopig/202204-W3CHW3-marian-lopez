@@ -11,9 +11,9 @@ class NavBarComponent {
     this.element.innerHTML = `
       <nav>
         <ul>
-          <li>Home</li>
-          <li><img src="images/pokemon-logo.svg" alt="alt" /></li>
-          <li>My Pokemons</li>
+          <a href=".index.html"><li>Home</li></a>
+          <a href="./index.html"<li><img src="images/pokemon-logo.svg" alt="alt" /></li></a>
+          <a href="./mypokemons.html"><li>My Pokemons</li></a>
         </ul>
       </nav>`;
   }
