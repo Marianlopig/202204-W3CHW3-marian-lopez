@@ -3,8 +3,12 @@ import Component from "./Component.js";
 const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 class PokemonComponent extends Component {
   pokemon;
-  constructor(parentElement, pokemon) {
+  buttonAction2;
+  buttonAction2Callback;
+  constructor(parentElement, pokemon, buttonAction2, buttonAction2Callback) {
     super("li", "pokecard", parentElement);
+    this.buttonAction2 = buttonAction2;
+    this.buttonAction2Callback = buttonAction2Callback;
     if (pokemon) {
       this.firstRender(pokemon);
     }
@@ -38,7 +42,7 @@ class PokemonComponent extends Component {
       <a href="../../details?id=${
         this.pokemon.id
       }"><input type="image" class="icon-detail-button" src="images/details.png" height ="50" alt="icono pokedex"></a>
-      <input type="image" class="icon-save-button" src="images/saveicon.png" height ="50" alt="icono pokeball">
+      ${this.getButtonAction2()}
     </div> 
   </div>
     `;
@@ -54,17 +58,40 @@ class PokemonComponent extends Component {
     return result;
   }
 
+  getButtonAction2() {
+    if (this.buttonAction2 && this.buttonAction2 === "delete") {
+      return '<input type="image" class="icon-delete-button" src="images/delete.png" height ="50" alt="icono pokeball">';
+    }
+    return '<input type="image" class="icon-save-button" src="images/saveicon.png" height ="50" alt="icono pokeball">';
+  }
+
   addEventListeners() {
     const saveButton = this.element.querySelector(".icon-save-button");
-    saveButton.addEventListener("click", () => {
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.pokemon),
-      };
+    if (saveButton) {
+      saveButton.addEventListener("click", () => {
+        const requestOptions = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(this.pokemon),
+        };
 
-      fetch("https://pokemon-marian.herokuapp.com/pokemon", requestOptions);
-    });
+        fetch("https://pokemon-marian.herokuapp.com/pokemon", requestOptions);
+      });
+    }
+
+    const deleteButton = this.element.querySelector(".icon-delete-button");
+    if (deleteButton) {
+      deleteButton.addEventListener("click", async () => {
+        const requestOptions = {
+          method: "DELETE",
+        };
+        await fetch(
+          `https://pokemon-marian.herokuapp.com/pokemon/${this.pokemon.id}`,
+          requestOptions
+        );
+        this.buttonAction2Callback();
+      });
+    }
   }
 }
 
